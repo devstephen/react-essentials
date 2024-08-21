@@ -1,7 +1,9 @@
 import { useState } from 'react'
-import TabButton from './TabButton'
-import Section from './Section'
 import { EXAMPLES } from '../data'
+import TabButton from './TabButton'
+import Tabs from './Tabs'
+
+import Section from './Section'
 
 export default function Example() {
   let tabContent = <p>Please select a topic</p>
@@ -25,33 +27,39 @@ export default function Example() {
 
   return (
     <Section title='Examples' id='examples'>
-      <menu>
-        <TabButton
-          isSelected={selectedTopic === 'components'}
-          onClick={() => handleSelect('components')}
-        >
-          Components
-        </TabButton>
-        <TabButton
-          isSelected={selectedTopic === 'jsx'}
-          onClick={() => handleSelect('jsx')}
-        >
-          JSX
-        </TabButton>
-        <TabButton
-          isSelected={selectedTopic === 'props'}
-          onClick={() => handleSelect('props')}
-        >
-          Props
-        </TabButton>
-        <TabButton
-          isSelected={selectedTopic === 'state'}
-          onClick={() => handleSelect('state')}
-        >
-          State
-        </TabButton>
-      </menu>
-      {tabContent}
+      <Tabs
+        ButtonsContainer='menu'
+        buttons={
+          <>
+            <TabButton
+              isSelected={selectedTopic === 'components'}
+              onClick={() => handleSelect('components')}
+            >
+              Components
+            </TabButton>
+            <TabButton
+              isSelected={selectedTopic === 'jsx'}
+              onClick={() => handleSelect('jsx')}
+            >
+              JSX
+            </TabButton>
+            <TabButton
+              isSelected={selectedTopic === 'props'}
+              onClick={() => handleSelect('props')}
+            >
+              Props
+            </TabButton>
+            <TabButton
+              isSelected={selectedTopic === 'state'}
+              onClick={() => handleSelect('state')}
+            >
+              State
+            </TabButton>
+          </>
+        }
+      >
+        {tabContent}
+      </Tabs>
     </Section>
   )
 }
