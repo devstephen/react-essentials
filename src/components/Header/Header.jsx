@@ -10,9 +10,9 @@ export default function Header() {
   const desc = reactDescriptions[getRandomInt(2)]
   return (
     <header>
-      <img src={reactImg} alt='Stylized atom' />
-      <h1>React Essentials</h1>
-      <p>
+      <img src={reactImg} alt='Stylized atom' data-test="logo-img" />
+      <h1 data-test="home-title">React Essentials</h1>
+      <p data-test="home-desc">
         {desc} React concepts you will need for almost any app you are going to
         build!
       </p>

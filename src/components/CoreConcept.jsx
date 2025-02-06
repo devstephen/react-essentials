@@ -1,9 +1,9 @@
-export default function CoreConcept({ image, title, description }) {
+export default function CoreConcept({ id, image, title, description }) {
   return (
-    <li>
-      <img src={image} alt={title} />
-      <h3>{title}</h3>
-      <p>{description}</p>
+    <li data-test={id}>
+      <img src={image} alt={title} data-test={`${id}-img`} />
+      <h3 data-test={`${id}-title`}>{title}</h3>
+      <p data-test={`${id}-desc`}>{description}</p>
     </li>
   )
 }
